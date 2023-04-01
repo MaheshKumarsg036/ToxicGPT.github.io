@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Toxic GPT</title>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+		}
+		
+		.message-box {
+			background-color: #f2f2f2;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 10px;
+			align-self: flex-start;
+			max-width: 80%;
+		}
+		
+		.user-message {
+			background-color: #007bff;
+			color: #fff;
+			align-self: flex-end;
+		}
+		
+		.message-input {
+			margin-top: auto;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			border-top: 1px solid #ccc;
+			padding: 10px;
+		}
+		
+		.message-input input[type=text] {
+			flex-grow: 1;
+			border: none;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+		
+		.message-input button[type=submit] {
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		const strings = ["Stop asking stupid questions!", "Go get a life!!!", "A donkey is better than you", "your brain is size of a peanut", "You are the dumbest person on the earth!", "I think your IQ level is close to zero", "Go and do some productive work instead of wasting time on internet. you moron"];
+		function changeText() {
+			const randomIndex = Math.floor(Math.random() * strings.length);
+			document.getElementById("output-text").innerHTML = strings[randomIndex]+". I can't answer your question";
+		}
+		function handleKeyPress(event) {
+			if (event.keyCode === 13) {
+				changeText();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="message-box">
+			<p>Hello, Welcome to toxic GPT. where you find a toxic message as reply!!!</p>
+		</div>
+		
+		<div class="message-box user-message">
+			<p>This is built for fun don't take seriously!!!</p>
+		</div>
+		
+		<div class="message-box">
+			<p>Enter a message to get a toxic reply!!!!</p>
+		</div>
+		
+		<div class="message-input">
+			<input type="text" placeholder="Type your message here...">
+			<button type="submit" onclick="changeText()">Send</button>
+		</div>
+		<div class="message-input">
+			<p id="output-text" class="message-box">
+			</p>
+		</div>
+	</div>
+</body>
+<script>
+	document.addEventListener("keydown", handleKeyPress);
+</script>
+</html>
